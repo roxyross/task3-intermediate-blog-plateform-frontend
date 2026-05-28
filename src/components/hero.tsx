@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 export function Hero() {
   const [text, setText] = useState("")
@@ -35,10 +36,15 @@ export function Hero() {
             Experience blogging in a new dimension. Immersive design, lightning-fast performance, and a touch of neon.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-3 bg-primary text-primary-foreground font-bold rounded-md neon-glow hover:scale-105 transition-all">
-              START EXPLORING
-            </button>
-            <button className="px-8 py-3 glass neon-border rounded-md hover:bg-white/5 transition-all">
+            <Link href="/blogs">
+              <button className="px-8 py-3 bg-primary text-primary-foreground font-bold rounded-md neon-glow hover:scale-105 transition-all">
+                START EXPLORING
+              </button>
+            </Link>
+            <button 
+              onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })}
+              className="px-8 py-3 glass neon-border rounded-md hover:bg-white/5 transition-all"
+            >
               LEARN MORE
             </button>
           </div>

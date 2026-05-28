@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import { blogsApi, categoriesApi } from "@/lib/api";
+import { blogsApi, categoriesApi, authApi } from "@/lib/api";
 import { motion } from "framer-motion";
 import { 
   FileText, 
@@ -12,19 +12,33 @@ import {
   LogOut, 
   ChevronRight,
   Eye,
-  MessageSquare
+  MessageSquare,
+  Zap
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
 
 export default function AdminDashboard() {
+  const router = useRouter();
   const [stats, setStats] = useState({
     totalBlogs: 0,
     totalViews: 0,
     totalCategories: 0,
     publishedBlogs: 0
   });
+
+  const handleLogout = async () => {
+    try {
+      await authApi.logout();
+      toast.success("SESSION_TERMINATED: Securely logged out.");
+      router.push("/admin/login");
+    } catch (error) {
+      toast.error("ERROR: Failed to terminate session.");
+    }
+  };
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -68,6 +82,12 @@ export default function AdminDashboard() {
               <Plus className="w-4 h-4" /> CREATE_NEW_BLOG
             </button>
           </Link>
+          <button 
+            onClick={handleLogout}
+            className="flex items-center gap-2 px-6 py-2 glass neon-border rounded-md hover:bg-red-500/10 text-red-500 transition-all"
+          >
+            <LogOut className="w-4 h-4" /> LOGOUT
+          </button>
         </div>
       </div>
 
@@ -138,5 +158,3 @@ export default function AdminDashboard() {
     </div>
   );
 }
-
-import { Zap } from "lucide-react";

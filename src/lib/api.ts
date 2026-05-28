@@ -24,6 +24,7 @@ export const categoriesApi = {
 
 export const authApi = {
   login: (data: FormData) => api.post("/auth/login", data),
+  logout: () => api.post("/auth/logout"),
   register: (data: any) => api.post("/auth/register", data),
 };
 

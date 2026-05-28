@@ -3,6 +3,8 @@
 import { Hero } from "@/components/hero";
 import { BlogCard } from "@/components/blog-card";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { toast } from "sonner";
 
 // Sample data for initial preview
 const sampleBlogs = [
@@ -52,7 +54,9 @@ export default function Home() {
           >
             LATEST <span className="text-primary">TRANSMISSIONS</span>
           </motion.h2>
-          <button className="text-primary hover:underline font-mono text-sm">VIEW_ALL_LOGS</button>
+          <Link href="/blogs">
+            <button className="text-primary hover:underline font-mono text-sm">VIEW_ALL_LOGS</button>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -81,7 +85,10 @@ export default function Home() {
             placeholder="ENTER_EMAIL_ADDRESS" 
             className="flex-grow bg-white/5 border-primary/20 focus:border-primary outline-none px-4 rounded-md transition-all"
           />
-          <button className="px-6 py-2 bg-primary text-primary-foreground font-bold rounded-md neon-glow transition-all">
+          <button 
+            onClick={() => toast.success("SYSTEM_SYNCHRONIZED: You have joined the network.")}
+            className="px-6 py-2 bg-primary text-primary-foreground font-bold rounded-md neon-glow transition-all"
+          >
             JOIN
           </button>
         </div>
