@@ -12,7 +12,7 @@ import { Loader2 } from "lucide-react";
 export default function BlogDetailPage() {
   const { slug } = useParams();
   const router = useRouter();
-  const [blog, setBlog] = useState(null);
+  const [blog, setBlog] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

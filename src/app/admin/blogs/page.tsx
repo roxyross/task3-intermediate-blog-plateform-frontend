@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function AdminBlogsPage() {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 

@@ -24,10 +24,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function AdminCategoriesPage() {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [editingCategory, setEditingCategory] = useState(null);
+  const [editingCategory, setEditingCategory] = useState<any>(null);
   
   const [formData, setFormData] = useState({
     name: "",
@@ -102,17 +102,19 @@ export default function AdminCategoriesPage() {
         </div>
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>
-            <button 
-              onClick={() => {
-                setEditingCategory(null);
-                setFormData({ name: "", slug: "", description: "", color: "#00f2ff" });
-              }}
-              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-bold rounded-md neon-glow transition-all"
-            >
-              <Plus className="w-4 h-4" /> ADD_NODE
-            </button>
-          </DialogTrigger>
+          <DialogTrigger 
+            render={
+              <button 
+                className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-bold rounded-md neon-glow transition-all"
+              >
+                <Plus className="w-4 h-4" /> ADD_NODE
+              </button>
+            }
+            onClick={() => {
+              setEditingCategory(null);
+              setFormData({ name: "", slug: "", description: "", color: "#00f2ff" });
+            }}
+          />
           <DialogContent className="glass neon-border text-foreground">
             <DialogHeader>
               <DialogTitle className="neon-text">

@@ -9,8 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
 export default function BlogsPage() {
-  const [blogs, setBlogs] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);

@@ -13,7 +13,7 @@ import { toast } from "sonner";
 export default function NewBlogPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<any[]>([]);
   
   const [formData, setFormData] = useState({
     title: "",

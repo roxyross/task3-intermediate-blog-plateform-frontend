@@ -51,9 +51,9 @@ export default function AdminDashboard() {
         const blogs = blogsRes.data;
         setStats({
           totalBlogs: blogs.length,
-          totalViews: blogs.reduce((acc, b) => acc + b.views, 0),
+          totalViews: blogs.reduce((acc: number, b: any) => acc + b.views, 0),
           totalCategories: catsRes.data.length,
-          publishedBlogs: blogs.filter(b => b.status === "published").length
+          publishedBlogs: blogs.filter((b: any) => b.status === "published").length
         });
       } catch (error) {
         console.error("Error fetching stats:", error);
