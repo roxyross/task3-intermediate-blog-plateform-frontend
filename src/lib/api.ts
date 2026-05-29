@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+// In production, we use the relative path to trigger Next.js rewrites/proxy
+// This ensures cookies are handled correctly and CORS is avoided.
+// In development, it will still work if the dev server handles the proxy.
+const API_URL = "/api/v1";
 
 const api = axios.create({
   baseURL: API_URL,

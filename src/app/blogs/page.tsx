@@ -31,6 +31,7 @@ export default function BlogsPage() {
         setCategories(catsRes.data);
       } catch (error) {
         console.error("Error fetching data:", error);
+        toast.error("ERROR: Failed to establish connection with ARCHIVE_SERVER.");
       } finally {
         setLoading(false);
       }

@@ -23,6 +23,7 @@ import { toast } from "sonner";
 
 export default function AdminDashboard() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
     totalBlogs: 0,
     totalViews: 0,
@@ -42,6 +43,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     const fetchStats = async () => {
+      setLoading(true);
       try {
         const [blogsRes, catsRes] = await Promise.all([
           blogsApi.getAll({ limit: 1000 }),
@@ -57,6 +59,9 @@ export default function AdminDashboard() {
         });
       } catch (error) {
         console.error("Error fetching stats:", error);
+        toast.error("ERROR: Failed to fetch system statistics.");
+      } finally {
+        setLoading(false);
       }
     };
     fetchStats();
@@ -68,6 +73,15 @@ export default function AdminDashboard() {
     { label: "ACTIVE_CATEGORIES", value: stats.totalCategories, icon: Layers, color: "text-purple-400" },
     { label: "PUBLISHED_NODES", value: stats.publishedBlogs, icon: Zap, color: "text-yellow-400" }
   ];
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center py-32">
+        <Loader2 className="w-12 h-12 text-primary animate-spin mb-4" />
+        <p className="font-mono text-primary">INITIALIZING_DASHBOARD_CORE...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-12">
