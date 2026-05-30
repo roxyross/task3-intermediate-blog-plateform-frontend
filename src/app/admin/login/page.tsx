@@ -27,7 +27,8 @@ export default function LoginPage() {
       toast.success("ACCESS_GRANTED: Welcome back, Admin.");
       router.push("/admin");
     } catch (error: any) {
-      toast.error("ACCESS_DENIED: Invalid credentials.");
+      const detail = error?.response?.data?.detail;
+      toast.error(typeof detail === "string" ? `ACCESS_DENIED: ${detail}` : "ACCESS_DENIED: Invalid credentials.");
       console.error("Login error:", error);
     } finally {
       setLoading(false);
