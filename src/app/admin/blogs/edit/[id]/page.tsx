@@ -5,7 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import { blogsApi, categoriesApi } from "@/lib/api";
 import { BlogEditor } from "@/components/blog-editor";
 import { motion } from "framer-motion";
-import { ArrowLeft, Save, Loader2, Image as ImageIcon } from "lucide-react";
+import { ArrowLeft, Save, LoaderCircle, Image as ImageIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
@@ -79,7 +79,7 @@ export default function EditBlogPage() {
   if (initialLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-32">
-        <Loader2 className="w-12 h-12 text-primary animate-spin mb-4" />
+        <LoaderCircle className="w-12 h-12 text-primary animate-spin mb-4" />
         <p className="font-mono text-primary">ACCESSING_DATA_NODE...</p>
       </div>
     );
@@ -188,7 +188,7 @@ export default function EditBlogPage() {
                 disabled={loading}
                 className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-md neon-glow flex items-center justify-center gap-2 hover:scale-[1.02] transition-all disabled:opacity-50"
               >
-                {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
+                {loading ? <LoaderCircle className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
                 CONFIRM_CHANGES
               </button>
             </div>

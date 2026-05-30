@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { blogsApi, categoriesApi } from "@/lib/api";
 import { BlogEditor } from "@/components/blog-editor";
 import { motion } from "framer-motion";
-import { ArrowLeft, Save, Globe, Eye, Image as ImageIcon, Loader2 } from "lucide-react";
+import { ArrowLeft, Save, Globe, Eye, Image as ImageIcon, LoaderCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
@@ -174,7 +174,7 @@ export default function NewBlogPage() {
                 disabled={loading}
                 className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-md neon-glow flex items-center justify-center gap-2 hover:scale-[1.02] transition-all disabled:opacity-50"
               >
-                {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
+                {loading ? <LoaderCircle className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
                 {formData.status === "published" ? "BROADCAST_NOW" : "SAVE_LOCAL_BUFFER"}
               </button>
             </div>

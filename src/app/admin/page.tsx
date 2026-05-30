@@ -3,17 +3,18 @@
 import { useState, useEffect } from "react";
 import { blogsApi, categoriesApi, authApi } from "@/lib/api";
 import { motion } from "framer-motion";
-import { 
-  FileText, 
-  Layers, 
-  BarChart3, 
-  Plus, 
-  Settings, 
-  LogOut, 
+import {
+  FileText,
+  Layers,
+  BarChart3,
+  Plus,
+  Settings,
+  LogOut,
   ChevronRight,
   Eye,
   MessageSquare,
-  Zap
+  Zap,
+  Loader2
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

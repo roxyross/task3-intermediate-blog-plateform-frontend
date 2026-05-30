@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import { blogsApi } from "@/lib/api";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Plus, 
-  Search, 
-  Edit2, 
-  Trash2, 
-  Eye, 
+import {
+  Plus,
+  Search,
+  Edit2,
+  Trash2,
+  Eye,
   MoreVertical,
-  Loader2,
+  LoaderCircle,
   CheckCircle,
   Clock
 } from "lucide-react";
@@ -103,7 +103,7 @@ export default function AdminBlogsPage() {
               {loading ? (
                 <tr>
                   <td colSpan={6} className="p-20 text-center">
-                    <Loader2 className="w-8 h-8 text-primary animate-spin mx-auto mb-4" />
+                    <LoaderCircle className="w-8 h-8 text-primary animate-spin mx-auto mb-4" />
                     <p className="font-mono text-sm">QUERYING_DATABASE...</p>
                   </td>
                 </tr>

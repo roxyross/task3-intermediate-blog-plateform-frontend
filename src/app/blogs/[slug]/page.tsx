@@ -5,9 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 import { blogsApi } from "@/lib/api";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { Eye, Calendar, User, ArrowLeft, Share2 } from "lucide-react";
+import { Eye, Calendar, User, ArrowLeft, Share2, Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Loader2 } from "lucide-react";
 
 export default function BlogDetailPage() {
   const { slug } = useParams();

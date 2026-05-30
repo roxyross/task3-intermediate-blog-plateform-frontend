@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Loader2, Layers } from "lucide-react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { toast } from "sonner";
 
 export default function CategoriesPage() {
   const [categories, setCategories] = useState<any[]>([]);

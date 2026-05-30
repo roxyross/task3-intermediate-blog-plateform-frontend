@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 import { categoriesApi } from "@/lib/api";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Plus, 
-  Edit2, 
-  Trash2, 
-  Loader2,
+import {
+  Plus,
+  Edit2,
+  Trash2,
+  LoaderCircle,
   CheckCircle,
   X
 } from "lucide-react";
@@ -175,7 +175,7 @@ export default function AdminCategoriesPage() {
         <AnimatePresence>
           {loading ? (
             <div className="col-span-full py-20 text-center">
-              <Loader2 className="w-8 h-8 text-primary animate-spin mx-auto mb-4" />
+              <LoaderCircle className="w-8 h-8 text-primary animate-spin mx-auto mb-4" />
             </div>
           ) : categories.map((cat) => (
             <motion.div

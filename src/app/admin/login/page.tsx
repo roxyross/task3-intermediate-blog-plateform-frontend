@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { authApi } from "@/lib/api";
 import { motion } from "framer-motion";
-import { Zap, Loader2, Lock, Mail } from "lucide-react";
+import { Zap, LoaderCircle, Lock, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 
@@ -87,7 +87,7 @@ export default function LoginPage() {
           >
             {loading ? (
               <>
-                <Loader2 className="w-4 h-4 animate-spin" />
+                <LoaderCircle className="w-4 h-4 animate-spin" />
                 AUTHENTICATING...
               </>
             ) : (
