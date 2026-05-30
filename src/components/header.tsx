@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { LogOut, LayoutDashboard } from "lucide-react";
+import { LogOut, LayoutDashboard, UserPlus } from "lucide-react";
 import { authApi } from "@/lib/api";
 import { toast } from "sonner";
 
@@ -47,11 +47,18 @@ export function Header() {
               <LogOut className="w-4 h-4" /> <span className="hidden sm:inline">Logout</span>
             </button>
           ) : (
-            <Link href="/admin">
-              <button className="flex items-center gap-2 px-4 py-2 glass neon-border rounded-md hover:bg-primary/10 transition-all">
-                <LayoutDashboard className="w-4 h-4" /> <span className="hidden sm:inline">Admin</span>
-              </button>
-            </Link>
+            <>
+              <Link href="/register">
+                <button className="flex items-center gap-2 px-4 py-2 glass neon-border rounded-md hover:bg-primary/10 transition-all">
+                  <UserPlus className="w-4 h-4" /> <span className="hidden sm:inline">Register</span>
+                </button>
+              </Link>
+              <Link href="/admin">
+                <button className="flex items-center gap-2 px-4 py-2 glass neon-border rounded-md hover:bg-primary/10 transition-all">
+                  <LayoutDashboard className="w-4 h-4" /> <span className="hidden sm:inline">Admin</span>
+                </button>
+              </Link>
+            </>
           )}
         </div>
       </div>
